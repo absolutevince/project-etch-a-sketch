@@ -9,24 +9,31 @@ let activeColor = colorsBtn[0].dataset.color;
 generateGrid(size);
 
 function generateGrid(size) {
+  canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   canvas.innerHTML = "";
-  const blockSize = canvas.clientWidth / (size / 2);
-  for (let i = 0; i < size ** 2; i++) {
-    const div = document.createElement("div");
-    div.style.width = `${blockSize / 2}px`;
-    div.style.height = `${blockSize / 2}px`;
-    div.className = "block";
-    div.addEventListener("mouseover", () => {
-      if (activeColor === "random") {
-        const rnd = Math.floor(Math.random() * colorsBtn.length);
-        console.log(rnd);
-        div.style.backgroundColor = colorsBtn[rnd].dataset.color;
-      } else {
-        div.style.backgroundColor = activeColor;
-      }
-    });
-    canvas.appendChild(div);
+  for (let i = 0; i < size; i++) {
+    const row = document.createElement("div");
+    row.className = "grid-row";
+    row.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    for (let j = 0; j < size; j++) {
+      const div = document.createElement("div");
+      div.className = "block";
+      addHoverEvent(div);
+      row.appendChild(div);
+    }
+    canvas.appendChild(row);
   }
+}
+
+function addHoverEvent(element) {
+  element.addEventListener("mouseover", () => {
+    if (activeColor === "random") {
+      const rnd = Math.floor(Math.random() * colorsBtn.length);
+      element.style.backgroundColor = colorsBtn[rnd].dataset.color;
+    } else {
+      element.style.backgroundColor = activeColor;
+    }
+  });
 }
 
 colorsBtn.forEach((button) => {
