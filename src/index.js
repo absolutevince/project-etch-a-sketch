@@ -1,4 +1,12 @@
 import "./main.css";
-import colorPicker from "./module/colorPicker";
+import Canvas from "./class/Canvas";
+import ColorButtons from "./dom/ColorButtons";
+import ColorPallete from "./class/ColorPallete";
+import CanvasSizeSelect from "./dom/CanvasSizeSelect";
+import CanvasContainer from "./dom/CanvasContainer";
 
-colorPicker.init();
+CanvasContainer.init();
+Canvas.init();
+ColorButtons.init();
+ColorPallete.init();
+CanvasSizeSelect.init();

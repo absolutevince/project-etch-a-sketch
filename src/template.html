@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,23 +16,27 @@
           <button data-color=""></button>
           <button data-color=""></button>
           <button data-color=""></button>
-          <input class="color-picker" type="color" />
+          <input class="color-wheel" type="color" />
         </div>
         <div class="sizes">
           <label for="canvas-sizes">Select canvas size</label>
-          <select name="canvas-sizes" id="canvas-sizes">
-            <option value="4">4 x 4</option>
+          <select
+            class="set-canvas-size-select"
+            name="canvas-sizes"
+            id="canvas-sizes"
+          >
+            <option selected value="4">4 x 4</option>
             <option value="8">8 x 8</option>
             <option value="16">16 x 16</option>
             <option value="32">32 x 32</option>
             <option value="64">64 x 64</option>
             <option value="128">128 x 128</option>
           </select>
-          <button class="submit-size-button">Set</button>
+          <button class="set-canvas-size-button">Set</button>
         </div>
       </div>
       <div class="board">
-        <div class="canvas">
+        <div class="canvas-container">
           <!-- coloring grid -->
         </div>
       </div>
