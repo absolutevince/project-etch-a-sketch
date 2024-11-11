@@ -22,8 +22,17 @@
   width: 498px;
 }
 
-.canvas {
+.canvas-container {
   width: 100%;
   height: 100%;
-  background-color: aqua;
+  display: grid;
+}
+.cell-row {
+  display: grid;
+}
+
+.cell {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }

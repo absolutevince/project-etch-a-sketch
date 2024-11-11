@@ -20,6 +20,6 @@ export default class Canvas {
       this.#grid.push(row);
     }
 
-    pubsub.publish("new_grid_size_set", this.#grid);
+    pubsub.publish("new_grid_size_set", this.#grid, size);
   }
 }

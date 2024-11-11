@@ -7,6 +7,8 @@ export default class ColorPallete {
   static init() {
     pubsub.sub("add_color", this.addColor.bind(this));
     pubsub.sub("select_color", this.selectColor.bind(this));
+    this.addColor("#000000");
+    this.selectColor(0);
   }
 
   static selectColor(id) {
@@ -27,7 +29,7 @@ export default class ColorPallete {
     pubsub.publish("color_added", this.#COLOR_ARRAY);
   }
 
-  static getSelectedColor() {
-    return this.#COLOR_ARRAY.filter((color) => color.activeStatus).shift();
+  static getSelectedColorHex() {
+    return this.#COLOR_ARRAY.filter((color) => color.activeStatus).shift().hex;
   }
 }
