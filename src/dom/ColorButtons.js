@@ -19,12 +19,19 @@ export default class ColorButtons {
       button.dataset.id = c.id;
       button.style.backgroundColor = c.hex;
       button.dataset.active = c.activeStatus;
+
+      if (c.activeStatus) {
+        button.classList.add("active-color");
+      } else {
+        button.classList.remove("active-color");
+      }
     });
   }
 
   static listen() {
     this.#buttons.forEach((button) => {
       button.addEventListener("click", () => {
+        if (button.dataset.color === "") return;
         pubsub.publish("select_color", button.dataset.id);
       });
     });

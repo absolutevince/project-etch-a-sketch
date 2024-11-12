@@ -13,9 +13,57 @@
   padding: 10px;
 }
 
+.sidebar .colors button {
+  position: relative;
+}
+
+.active-color::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 5px;
+  border: 2px solid #000;
+}
+
 .sidebar {
   background-color: aliceblue;
   width: 15rem;
+}
+
+.sidebar .colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+  gap: 0.2rem;
+  padding: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar .colors button,
+.sidebar .colors .color-wheel {
+  height: 2rem;
+}
+
+.sidebar .colors .color-wheel {
+  width: 100%;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.sidebar .colors .color-wheel::-webkit-color-swatch {
+  border-radius: 50%;
+}
+
+.sidebar .sizes {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .sizes select {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar .sizes > * {
+  height: 2rem;
 }
 
 .board {

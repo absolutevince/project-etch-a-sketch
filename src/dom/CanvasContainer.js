@@ -41,12 +41,12 @@ export default class CanvasContainer {
   static listenForCellHover(cell) {
     cell.addEventListener("mouseover", () => {
       if (this.#drawing) {
-        cell.style.background = ColorPallete.getSelectedColorHex();
+        cell.style.background = ColorPallete.selectedColor().hex();
       }
     });
 
     cell.addEventListener("mousedown", () => {
-      cell.style.background = ColorPallete.getSelectedColorHex();
+      cell.style.background = ColorPallete.selectedColor().hex();
     });
   }
 }
