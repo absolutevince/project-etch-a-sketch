@@ -29,9 +29,10 @@ export default class ColorPallete {
       const c = new Color(color, this.selectedColor().id());
       this.replaceActiveColor(c);
       this.selectColor(c.id);
-      console.log(this.#COLOR_ARRAY);
     } else {
-      this.#COLOR_ARRAY.push(new Color(color, this.#COLOR_ARRAY.length));
+      const c = new Color(color, this.#COLOR_ARRAY.length);
+      this.#COLOR_ARRAY.push(c);
+      this.selectColor(c.id);
     }
     pubsub.publish("color_added", this.#COLOR_ARRAY);
   }

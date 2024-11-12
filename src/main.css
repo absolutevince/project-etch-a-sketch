@@ -5,19 +5,34 @@
   --clr-accent: #80deea;
 }
 
+html {
+  color: var(--clr-accent);
+  background-color: var(--clr-secondary-2);
+}
+
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
   height: 100vh;
   gap: 1rem;
 }
 
-.wrapper > * {
-  height: 80%;
-  border: 1px solid #333;
-  padding: 10px;
+.board,
+.sidebar {
+  padding: 0.5rem;
+}
+
+.board {
+  width: 498px;
+  box-shadow: 0 0 5px #333;
+  height: 498px;
+  background-color: #fff;
+}
+
+.sidebar {
+  height: 498px;
+  width: 15rem;
 }
 
 .sidebar .colors button {
@@ -41,7 +56,6 @@ button {
 
 .sidebar {
   background-color: var(--clr-primary);
-  width: 15rem;
 }
 
 .sidebar .colors {
@@ -90,10 +104,6 @@ button {
 
 .sidebar .sizes > * {
   height: 2rem;
-}
-
-.board {
-  width: 498px;
 }
 
 .canvas-container {
