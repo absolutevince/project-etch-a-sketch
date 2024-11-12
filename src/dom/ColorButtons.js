@@ -1,8 +1,12 @@
+import ColorPallete from "../class/ColorPallete";
 import pubsub from "../module/pubsub";
 
 export default class ColorButtons {
   static #buttons = document.querySelectorAll(".colors button[data-color]");
   static #colorWheel = document.querySelector(".colors .color-wheel");
+  static #activeColorIndicator = document.querySelector(
+    ".colors .active-color-indicator",
+  );
 
   static init() {
     pubsub.sub("color_added", this.displayColors.bind(this));
@@ -22,10 +26,15 @@ export default class ColorButtons {
 
       if (c.activeStatus) {
         button.classList.add("active-color");
+        this.setActiveColorIndicator(c.hex);
       } else {
         button.classList.remove("active-color");
       }
     });
+  }
+
+  static setActiveColorIndicator(hex) {
+    this.#activeColorIndicator.style.backgroundColor = hex;
   }
 
   static listen() {

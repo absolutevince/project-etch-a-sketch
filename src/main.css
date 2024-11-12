@@ -1,3 +1,10 @@
+:root {
+  --clr-primary: #263238;
+  --clr-secondary: #039be5;
+  --clr-secondary-2: #03a9f4;
+  --clr-accent: #80deea;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -17,16 +24,23 @@
   position: relative;
 }
 
+button {
+  background: var(--clr-accent);
+  border: none;
+  border-radius: 5px;
+}
+
 .active-color::after {
   content: "";
   position: absolute;
+  border-radius: 5px;
   inset: 0;
-  width: 5px;
-  border: 2px solid #000;
+  color: #fff;
+  border: 2px solid;
 }
 
 .sidebar {
-  background-color: aliceblue;
+  background-color: var(--clr-primary);
   width: 15rem;
 }
 
@@ -41,6 +55,18 @@
 .sidebar .colors button,
 .sidebar .colors .color-wheel {
   height: 2rem;
+}
+
+.sidebar .colors .active-color-indicator {
+  border: 1px solid;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+}
+
+.sidebar .colors .active-color-indicator-label {
+  display: grid;
+  place-content: center;
 }
 
 .sidebar .colors .color-wheel {

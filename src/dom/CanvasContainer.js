@@ -8,6 +8,10 @@ export default class CanvasContainer {
   static init() {
     pubsub.sub("new_grid_size_set", this.displayGrid.bind(this));
 
+    window.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+
     window.addEventListener("mousedown", () => {
       this.#drawing = true;
     });
@@ -39,14 +43,23 @@ export default class CanvasContainer {
   }
 
   static listenForCellHover(cell) {
-    cell.addEventListener("mouseover", () => {
+    // e.which refers to the mouse buttons (0 === left button, 3 right mouse button)
+    cell.addEventListener("mouseover", (e) => {
       if (this.#drawing) {
-        cell.style.background = ColorPallete.selectedColor().hex();
+        if (e.which === 1) {
+          cell.style.background = ColorPallete.selectedColor().hex();
+        } else if (e.which === 3) {
+          cell.style.background = "#fff";
+        }
       }
     });
 
-    cell.addEventListener("mousedown", () => {
-      cell.style.background = ColorPallete.selectedColor().hex();
+    cell.addEventListener("mousedown", (e) => {
+      if (e.which === 1) {
+        cell.style.background = ColorPallete.selectedColor().hex();
+      } else if (e.which === 3) {
+        cell.style.background = "#fff";
+      }
     });
   }
 }
